@@ -5,10 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/AlamofireObjectMapperPromise.svg?style=flat)](https://cocoapods.org/pods/AlamofireObjectMapperPromise)
 [![Platform](https://img.shields.io/cocoapods/p/AlamofireObjectMapperPromise.svg?style=flat)](https://cocoapods.org/pods/AlamofireObjectMapperPromise)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Requirements
 
 ## Installation
@@ -18,6 +14,28 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'AlamofireObjectMapperPromise'
+```
+
+## Usage
+
+#### Map Object
+```swift
+// func responseObject<T: BaseMappable>(queue: DispatchQueue? = nil, keyPath: String? = nil, mapToObject object: T? = nil, context: MapContext? = nil) -> Promise<T>
+    
+func fetchUserInfo() -> Promise<UserInfo> {
+    return Alamofire.request(url)
+        .responseObject()
+}
+```
+
+#### Map Array
+```swift
+// func responseArray<T: BaseMappable>(queue: DispatchQueue? = nil, keyPath: String? = nil, context: MapContext? = nil) -> Promise<[T]>
+
+func fetchMessages() -> Promise<[Message]> {
+    return Alamofire.request(url)
+        .responseArray()
+}
 ```
 
 ## Author
